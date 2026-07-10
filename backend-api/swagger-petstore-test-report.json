@@ -1,0 +1,319 @@
+{
+	"id": "7764ed44-2f1d-442a-9fb9-77357646dbae",
+	"name": "Swagger Petstore",
+	"timestamp": "2026-07-10T20:05:58.450Z",
+	"collection_id": "52151680-9656c3ba-7ff9-4801-9492-b27fe5e8df18",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 11,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2026-07-10T20:05:56.372Z",
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "306726ac-1189-4554-a97f-7f17c012f913",
+			"name": "REQ-01",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 805,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code é 200": true,
+				"Valida ID, Nome e Status": true
+			},
+			"testPassFailCounts": {
+				"Status code é 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valida ID, Nome e Status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				805
+			],
+			"allTests": [
+				{
+					"Status code é 200": true,
+					"Valida ID, Nome e Status": true
+				}
+			]
+		},
+		{
+			"id": "6e9ab8a5-8aca-434b-a7c9-7a24e77f2f29",
+			"name": "REQ-01 Edge-Case",
+			"url": "https://petstore.swagger.io/v2/pet",
+			"time": 164,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code é 400 (Requisição inválida barrada com sucesso)": false
+			},
+			"testPassFailCounts": {
+				"Status code é 400 (Requisição inválida barrada com sucesso)": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				164
+			],
+			"allTests": [
+				{
+					"Status code é 400 (Requisição inválida barrada com sucesso)": false
+				}
+			]
+		},
+		{
+			"id": "948a6a07-3efd-45bd-9bbf-5e4b04c2226d",
+			"name": "REQ-02",
+			"url": "https://petstore.swagger.io/v2/pet/2612283",
+			"time": 109,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code é 200": true,
+				"Valida ID, Nome e Status": true
+			},
+			"testPassFailCounts": {
+				"Status code é 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valida ID, Nome e Status": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Status code é 200": true,
+					"Valida ID, Nome e Status": true
+				}
+			]
+		},
+		{
+			"id": "23bee321-51aa-4576-8b39-817b6b03d035",
+			"name": "REQ-02 Edge-Case1",
+			"url": "https://petstore.swagger.io/v2/pet/",
+			"time": 108,
+			"responseCode": {
+				"code": 405,
+				"name": "Method Not Allowed"
+			},
+			"tests": {
+				"Status code é 405 (Omissão de parâmetro obrigatório bloqueada)": true
+			},
+			"testPassFailCounts": {
+				"Status code é 405 (Omissão de parâmetro obrigatório bloqueada)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Status code é 405 (Omissão de parâmetro obrigatório bloqueada)": true
+				}
+			]
+		},
+		{
+			"id": "532c6a6e-dfdb-49a9-bb3c-63c62c52e13e",
+			"name": "REQ-02 Edge-Case2",
+			"url": "https://petstore.swagger.io/v2/pet/2612283.99",
+			"time": 108,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 400 ou 404 (ID decimal rejeitado)": true
+			},
+			"testPassFailCounts": {
+				"Status code é 400 ou 404 (ID decimal rejeitado)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				108
+			],
+			"allTests": [
+				{
+					"Status code é 400 ou 404 (ID decimal rejeitado)": true
+				}
+			]
+		},
+		{
+			"id": "e6106f7c-a894-4287-aed3-3c19307f0730",
+			"name": "REQ-03",
+			"url": "https://petstore.swagger.io/v2/pet/000000000000000000",
+			"time": 143,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 404": true,
+				"Valida mensagem de erro": true
+			},
+			"testPassFailCounts": {
+				"Status code é 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Valida mensagem de erro": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				143
+			],
+			"allTests": [
+				{
+					"Status code é 404": true,
+					"Valida mensagem de erro": true
+				}
+			]
+		},
+		{
+			"id": "22e996e0-a7d7-476f-8ae6-67e8e81f2ec6",
+			"name": "REQ-03 Edge-Case",
+			"url": "https://petstore.swagger.io/v2/pet/-1",
+			"time": 110,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 404 (ID Negativo não encontrado)": true
+			},
+			"testPassFailCounts": {
+				"Status code é 404 (ID Negativo não encontrado)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				110
+			],
+			"allTests": [
+				{
+					"Status code é 404 (ID Negativo não encontrado)": true
+				}
+			]
+		},
+		{
+			"id": "8cf4293f-6284-4f7b-8cd1-9b622eefc271",
+			"name": "REQ-04",
+			"url": "https://petstore.swagger.io/v2/pet/2612283",
+			"time": 107,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code é 200": true
+			},
+			"testPassFailCounts": {
+				"Status code é 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				107
+			],
+			"allTests": [
+				{
+					"Status code é 200": true
+				}
+			]
+		},
+		{
+			"id": "c5e94a7f-d66f-49d1-af28-db57ab059882",
+			"name": "REQ-04 Edge-Case",
+			"url": "https://petstore.swagger.io/v2/pet/2612283",
+			"time": 109,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code é 404 (Pet já havia sido deletado)": true
+			},
+			"testPassFailCounts": {
+				"Status code é 404 (Pet já havia sido deletado)": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				109
+			],
+			"allTests": [
+				{
+					"Status code é 404 (Pet já havia sido deletado)": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1763,
+	"collection": {
+		"requests": [
+			{
+				"id": "306726ac-1189-4554-a97f-7f17c012f913",
+				"method": "POST"
+			},
+			{
+				"id": "6e9ab8a5-8aca-434b-a7c9-7a24e77f2f29",
+				"method": "POST"
+			},
+			{
+				"id": "948a6a07-3efd-45bd-9bbf-5e4b04c2226d",
+				"method": "GET"
+			},
+			{
+				"id": "23bee321-51aa-4576-8b39-817b6b03d035",
+				"method": "GET"
+			},
+			{
+				"id": "532c6a6e-dfdb-49a9-bb3c-63c62c52e13e",
+				"method": "GET"
+			},
+			{
+				"id": "e6106f7c-a894-4287-aed3-3c19307f0730",
+				"method": "GET"
+			},
+			{
+				"id": "22e996e0-a7d7-476f-8ae6-67e8e81f2ec6",
+				"method": "GET"
+			},
+			{
+				"id": "8cf4293f-6284-4f7b-8cd1-9b622eefc271",
+				"method": "DELETE"
+			},
+			{
+				"id": "c5e94a7f-d66f-49d1-af28-db57ab059882",
+				"method": "DELETE"
+			}
+		]
+	}
+}

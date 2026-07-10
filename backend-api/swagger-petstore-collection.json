@@ -1,0 +1,379 @@
+{
+  "info": {
+    "_postman_id": "9656c3ba-7ff9-4801-9492-b27fe5e8df18",
+    "name": "Swagger Petstore",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52151680",
+    "_collection_link": "https://go.postman.co/collection/52151680-9656c3ba-7ff9-4801-9492-b27fe5e8df18?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "REQ-01",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Valida ID, Nome e Status\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.id).to.eql(2612283);",
+              "    pm.expect(jsonData.name).to.eql(\"Jon Snow\");",
+              "    pm.expect(jsonData.status).to.eql(\"available\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 2612283,\n  \"name\": \"Jon Snow\",\n  \"status\": \"available\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-01 Edge-Case",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 400 (Requisição inválida barrada com sucesso)\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 2612284,\n  \"name\": \"Jon Snow\",\n  \"status\": \"fantasma\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-02",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Valida ID, Nome e Status\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.id).to.eql(2612283);",
+              "    pm.expect(jsonData.name).to.eql(\"Jon Snow\");",
+              "    pm.expect(jsonData.status).to.eql(\"available\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/2612283",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "2612283"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-02 Edge-Case1",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 405 (Omissão de parâmetro obrigatório bloqueada)\", function () {",
+              "    pm.response.to.have.status(405);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-02 Edge-Case2",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 400 ou 404 (ID decimal rejeitado)\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([400, 404]);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/2612283.99",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "2612283.99"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-03",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 404\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});",
+              "",
+              "pm.test(\"Valida mensagem de erro\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.message).to.eql(\"Pet not found\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/000000000000000000",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "000000000000000000"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-03 Edge-Case",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 404 (ID Negativo não encontrado)\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/-1",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "-1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-04",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/2612283",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "2612283"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "REQ-04 Edge-Case",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 404 (Pet já havia sido deletado)\", function () {",
+              "    pm.response.to.have.status(404);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://petstore.swagger.io/v2/pet/2612283",
+          "protocol": "https",
+          "host": [
+            "petstore",
+            "swagger",
+            "io"
+          ],
+          "path": [
+            "v2",
+            "pet",
+            "2612283"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
